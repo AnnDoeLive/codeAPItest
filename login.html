@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Amsterdam&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Handjet:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Amsterdam&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="login-page">
+        <div style="background-color: #68c6af; border-radius: 4px;">
+            <div class="logo-box__login-page">
+                <h2 class="logoname__login-page">DoeLive</h2>
+            </div>
+            <div>
+                <div class="login-box__login-page"
+                    style="flex-direction: column-reverse;flex-wrap: wrap;align-content: center">
+                    <div class="input-bars__login-page">
+                        <label class="title-label">Password:</label>
+                        <div><input class="input__input-bars__login-page" type="password" id="password"></div>
+                        <div id="errorPassword" class="error"></div>
+                    </div>
+                    <div class="input-bars__login-page">
+                        <label class="title-label">Username:</label>
+                        <div> <input class="input__input-bars__login-page" id="username"></div>
+                        <div id="errorUsername" class="error"></div>
+                    </div>
+                </div>
+                <div>
+                    <button class="button" onclick="submit()">LOGIN</button>
+                </div>
+                <div id="success" class="checkSuccess"></div>
+            </div>
+            <div class="sign up" style="display: flex;justify-content: center; gap: 20px; font-size: 18px;">
+                Chưa có tài khoản? <a href="">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+
+
+
+
+    function checkPhoneNumberValid(val) {
+        return /^0[0-9]{9,10}$/.test(val);
+    };
+    function checkNameValid(val) {
+        return /^[/a-zA-Z]+([a-zA-Z0-9_]+){1,25}$/.test(val);
+    }
+    function checkPasswordValid(val) {
+        return /^[\S+]{8,16}$/.test(val);
+    }
+
+
+    function submit() {
+
+        const checkPassword = document.getElementById("password");
+        const checkUsername = document.getElementById("username");
+
+        const showErrorPassword = document.getElementById(`errorPassword`);
+        const showErrorUsername = document.getElementById(`errorUsername`);
+        const checkSuccessValid = document.getElementById(`success`);
+
+        if (checkPasswordValid(`${checkPassword.value}`) == false) {
+            showErrorPassword.value = `Password không hợp lệ!`;
+            showErrorPassword.textContent = showErrorPassword.value;
+        } else { showErrorPassword.textContent = ""; }
+
+        if (checkNameValid(`${checkUsername.value}`) == false) {
+            showErrorUsername.value = `Username không hợp lệ!`;
+            showErrorUsername.textContent = showErrorUsername.value;
+        } else { showErrorUsername.textContent = ""; }
+
+        if (showErrorUsername.textContent == "" && showErrorPassword.textContent == "") {
+            const apiUrl = `http://52.221.236.203:8080/auth/api/v1/auth/login?firstName=Doe`;
+            const data = {
+                "password": `${checkPassword.value}`,
+                "username": `${checkUsername.value}`
+            };
+
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            };
+            fetch(apiUrl, requestOptions)
+                .then(response => {
+                    return response.json();
+                })
+                .then(jsonData => {
+                    if (jsonData.data == null) {
+                        const errorMessage = jsonData.error.message;
+                        checkSuccessValid.value = `${errorMessage}`;
+                        checkSuccessValid.textContent = checkSuccessValid.value;
+                    } else {
+                        const mtdata = jsonData.metadata;
+                        const token = jsonData.data;
+                        localStorage.setItem('accessToken', token.accessToken || "null");
+                        localStorage.setItem('refreshToken', token.refreshToken || "null");
+                        window.location.href = "/Users/vuhoangan/Documents/JAVASCRIPT_PROJECT/APItest/shoppage.html";
+                    }
+                })
+
+        }
+
+
+
+    }
+
+</script>
+
+</html>

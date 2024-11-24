@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Amsterdam&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Handjet:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Amsterdam&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="login-page">
+        <div style="background-color: #68c6af; border-radius: 4px;">
+            <div class="logo-box__login-page">
+                <h2 class="logoname__login-page">DoeLive</h2>
+            </div>
+            <div>
+                <div class="login-box__login-page">
+                    <div class="input-bars__login-page">
+                        <label class="title-label">Firstname:</label>
+                        <div><input class="input__input-bars__login-page" type="text" id="firstname"></div>
+                        <div id="errorFirstName" class="error"></div>
+                    </div>
+                    <div class="input-bars__login-page">
+                        <label class="title-label">Lastname:</label>
+                        <div><input class="input__input-bars__login-page" type="text" id="lastname"></div>
+                        <div id="errorLastName" class="error"></div>
+                    </div>
+                </div>
+
+                <div class="login-box__login-page">
+                    <div class="input-bars__login-page">
+                        <label class="title-label">Email:</label>
+                        <div><input class="input__input-bars__login-page" type="text" id="email"></div>
+                        <div id="errorEmail" class="error"></div>
+                    </div>
+                    <div class="input-bars__login-page">
+                        <label class="title-label">Password:</label>
+                        <div><input class="input__input-bars__login-page" type="password" id="password"></div>
+                        <div id="errorPassword" class="error"></div>
+                    </div>
+                </div>
+
+                <div class="login-box__login-page">
+                    <div class="input-bars__login-page">
+                        <label class="title-label">PhoneNumber:</label>
+                        <div><input class="input__input-bars__login-page" type="number" id="phoneNumber"></div>
+                        <div id="errorPhoneNumber" class="error"></div>
+                    </div>
+                    <div class="input-bars__login-page">
+                        <label class="title-label">Username:</label>
+                        <div> <input class="input__input-bars__login-page" id="username"></div>
+                        <div id="errorUsername" class="error"></div>
+                    </div>
+                </div>
+                <div>
+                    <button class="button" onclick="submit()">Sign up</button>
+                </div>
+                <div id="success" class="checkSuccess"></div>
+                <div style="display: flex;gap: 15px;font-size: 21px;">
+                    <div>Already have account?</div> <a onclick="signin()">Sign in</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+
+    // function callFetch() {
+    //     const response = fetch('https://jsonplaceholder.typicode.com/todos/1')
+    //         .then(response => response.json())
+    //         .then(json => { return json })
+    //     console.log("this is data ", response)
+    // }
+
+
+
+    function checkEmailValid(val) {
+        return /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/.test(val) || /w+([-+.]w+)*@w+([-.]w+)*.w+([-.]w+)*/.test(val);
+    };
+    function checkPhoneNumberValid(val) {
+        return /^0[0-9]{9,10}$/.test(val);
+    };
+    function checkNameValid(val) {
+        return /^[/a-zA-Z]+([a-zA-Z0-9_]+){1,25}$/.test(val);
+    }
+    function checkPasswordValid(val) {
+        return /^[\S+]{8,16}$/.test(val);
+    }
+
+    function signin() {
+        window.location.href = "/Users/vuhoangan/Documents/JAVASCRIPT_PROJECT/APItest/login.html";
+    }
+
+    function submit() {
+        const checkFirstName = document.getElementById("firstname");
+        const checkLastName = document.getElementById("lastname");
+        const checkEmail = document.getElementById("email");
+        const checkPassword = document.getElementById("password");
+        const checkPhoneNumber = document.getElementById("phoneNumber");
+        const checkUsername = document.getElementById("username");
+
+        const showErrorPhoneNumber = document.getElementById(`errorPhoneNumber`);
+        const showErrorFirstName = document.getElementById(`errorFirstName`);
+        const showErrorEmail = document.getElementById(`errorEmail`);
+        const showErrorLastName = document.getElementById(`errorLastName`);
+        const showErrorPassword = document.getElementById(`errorPassword`);
+        const showErrorUsername = document.getElementById(`errorUsername`);
+
+        const checkSuccess = document.getElementById(`success`);
+
+
+        if (checkEmailValid(`${checkEmail.value}`) == false) {
+            showErrorEmail.value = `Email không hợp lệ!`;
+            showErrorEmail.textContent = showErrorEmail.value;
+        } else { showErrorEmail.textContent = ""; }
+
+        if (checkPhoneNumberValid(`${checkPhoneNumber.value}`) == false) {
+            showErrorPhoneNumber.value = `Số điện thoại không hợp lệ!`;
+            showErrorPhoneNumber.textContent = showErrorPhoneNumber.value;
+        } else { showErrorPhoneNumber.textContent = ""; }
+
+        if (checkNameValid(`${checkFirstName.value}`) == false) {
+            showErrorFirstName.value = `Firstname không hợp lệ!`;
+            showErrorFirstName.textContent = showErrorFirstName.value;
+        } else { showErrorFirstName.textContent = ""; }
+
+        if (checkNameValid(`${checkLastName.value}`) == false) {
+            showErrorLastName.value = `Lastname không hợp lệ!`;
+            showErrorLastName.textContent = showErrorLastName.value;
+        } else { showErrorLastName.textContent = ""; }
+
+        if (checkPasswordValid(`${checkPassword.value}`) == false) {
+            showErrorPassword.value = `Password không hợp lệ!`;
+            showErrorPassword.textContent = showErrorPassword.value;
+        } else { showErrorPassword.textContent = ""; }
+
+        if (checkNameValid(`${checkUsername.value}`) == false) {
+            showErrorUsername.value = `Username không hợp lệ!`;
+            showErrorUsername.textContent = showErrorUsername.value;
+        } else { showErrorUsername.textContent = ""; }
+
+        if (showErrorEmail.textContent == "" && showErrorPhoneNumber.textContent == "" && showErrorFirstName.textContent == "" && showErrorLastName.textContent == "" && showErrorUsername.textContent == "" && showErrorPassword.textContent == "") {
+            const apiUrl = `http://52.221.236.203:8080/auth/api/v1/auth/register`;
+            const data = {
+                "firstname": `${checkFirstName.value}`,
+                "lastname": `${checkLastName.value}`,
+                "email": `${checkEmail.value}`,
+                "password": `${checkPassword.value}`,
+                "phoneNumber": `${checkPhoneNumber.value}`,
+                "username": `${checkUsername.value}`
+            };
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            };
+            fetch(apiUrl, requestOptions)
+                .then(response => {
+                    return response.json();
+                    console.log(response.json);
+                })
+                .then(jsonData => {
+                    if (jsonData.data == null) {
+                        const errorMessage = jsonData.error.message;
+                        checkSuccess.value = `${errorMessage}`;
+                        checkSuccess.textContent = checkSuccess.value;
+                    }
+                    else {
+                        checkSuccess.textContent = "";
+                        const token = jsonData.data;
+                        localStorage.setItem('accessToken', token.accessToken || "null");
+                        localStorage.setItem('refreshToken', token.refreshToken || "null");
+                        window.location.href = "/Users/vuhoangan/Documents/JAVASCRIPT_PROJECT/APItest/login.html";
+                    }
+                })
+        }
+    }
+
+</script>
+
+</html>

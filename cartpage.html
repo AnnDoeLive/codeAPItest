@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shoppage.css">
+  <link rel="stylesheet" href="userinfo-page.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="header container smaller-header">
+
+    <div>28</div>
+    <img class="logo-top" src="img/32-safe.svg" alt="logo">
+    <div>11</div>
+
+  </div>
+
+  <div class="sidebar container">
+    <div class="Search-part_sidebar">
+
+      <div class="sidebar1style logoname">DoeLive</div>
+      <div class="sidebar1style collapse">Lorem Ipsum</div>
+      <div class="sidebar1style collapse">Lorem Ipsum</div>
+      <div class="sidebar1style collapse">Lorem Ipsum</div>
+
+    </div>
+    <div class="Cart-part_sidebar">
+
+      <div class="User-Logout emptycheck" id="logout__element" onclick="logout()"
+        style=" height:auto;width:auto;display: none;">
+        Log Out
+      </div>
+      <div class="User-Logout emptycheck" id="show-userinfo__element" onclick="showUserInfo()"
+        style=" height:auto;width:auto;display: none;">
+        User Info
+      </div>
+      <div class="User-Logout emptycheck" id="cart__element" onclick="cart()"
+        style=" height:auto;width:auto;display: none;">
+        Cart
+      </div>
+      <img class="User-Logout" src="img/logo/Workplace-Icons/Icon_21.svg" alt="User" onclick="setting_button()">
+      <div class="present">
+        <img src="img/arrow-down.svg" alt="option">
+      </div>
+
+    </div>
+  </div>
+  <div class="container" style="margin-top:19px">
+    <div class="big_title smaller-big-title-header" style="margin:0px 0px 9px 0px;justify-content: flex-start;">
+      Cart
+    </div>
+    <!-- <div class="sma-title_item_header">
+    </div> -->
+  </div>
+
+
+  <div class="container" style="display:flex;justify-content: flex-end;">
+
+    <div>
+      <!-- <div class="big_title" style="font-size: 22px;">
+        Filters
+      </div>
+      <div class="sma_title" style="font-size:14px; text-decoration: underline;">
+        Clear filters
+      </div> -->
+    </div>
+
+    <!-- <div class="box_SB_P">
+      <div style="font-size: 13px;font-weight: 100;padding-left: 12px;">
+        Sort By
+      </div>
+      <div style="font-size:14px;font-weight: bold;">
+        Popular
+      </div>
+      <div style="padding-right: 12px;">
+        <img src="img/arrow-down.svg" alt="option">
+      </div>
+    </div> -->
+  </div>
+
+
+  <div class="container" style="display:flex;justify-content: space-between;margin: 9px 0px 20px;font-size:14px">
+    <!-- <div style="font-weight: bold;">
+      Categories
+    </div>
+    <div style="font-weight: 400;">
+      Showing 1003 Products
+    </div> -->
+  </div>
+
+
+  <div class="layout_boxes_showcard_cart container">
+    <!-- <div class="filters_board">
+
+      <div class="layout_check">
+        <div class="check">✔︎</div>
+        <div class="titlecheck">Máy chơi game</div>
+      </div>
+      <div class="layout_check">
+        <div class="emptycheck"></div>
+        <div class="titlecheck">Chuột</div>
+      </div>
+
+
+
+      <div class="layout_check">
+        <div class="emptycheck"></div>
+        <div class="titlecheck">Tai nghe</div>
+      </div>
+      <div class="layout_check">
+        <div class="emptycheck"></div>
+        <div class="titlecheck">Bàn phím</div>
+      </div>
+
+    </div> -->
+
+    <div class="content">
+      <div class="boxes_showcard_shop">
+
+        <div class="boxes_card">
+          <div>
+            <div class="box"><img
+                src="https://product.hstatic.net/200000272737/product/miyooa30_d8035a57b9ab49cd8649f35c7a1b3c08_grande.png"
+                height="300px">
+            </div>
+            <div>Miyoo A30</div>
+            <div>1,350,000đ</div>
+          </div>
+        </div>
+        <div class="boxes_card">
+          <div>
+            <div class="box"><img
+                src="https://product.hstatic.net/200000272737/product/powkiddy-v10-topo_a1f2baf0750a4c93948823f5b9374403_grande.jpg"
+                height="300px"></div>
+            <div>Powkiddy V10</div>
+            <div>1,250,000đ</div>
+          </div>
+        </div>
+        <div class="boxes_card">
+          <div>
+            <div class="box"><img
+                src="https://product.hstatic.net/200000272737/product/4511aeba7c473f5c830db3aac1fc2570_352270db2a57403283468c39741b84a3_grande.jpg"
+                height="300px"></div>
+            <div>R35S</div>
+            <div>1,550,000đ</div>
+          </div>
+        </div>
+        <div class="boxes_card">
+          <div>
+            <div class="box"><img
+                src="https://product.hstatic.net/200000272737/product/m17-topo_8bbdd85eddbb41e888011582a65cec36_master.jpg"
+                height="300px"></div>
+            <div>M17</div>
+            <div>1,150,000đ</div>
+          </div>
+        </div>
+        <div class="boxes_card">
+          <div>
+            <div class="box"><img
+                src="https://product.hstatic.net/200000272737/product/powkiddy_v90_b0e40dff5cf84b14b9fd5f8f77eecfbf_master.jpg"
+                height="300px"></div>
+            <div>Powkiddy V90</div>
+            <div>900,000đ</div>
+          </div>
+        </div>
+        <div class="boxes_card">
+          <div>
+            <div class="box"><img
+                src="https://product.hstatic.net/200000272737/product/data_frog_sf2000_-web_f582a00b59b44813aab49a27cb04e4dd_master.jpg"
+                height="300px"></div>
+            <div>DATA FROG SF2000</div>
+            <div>650,000đ</div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <div class="Load-more-products">
+        Load more products
+      </div> -->
+
+
+    </div>
+    <div></div>
+
+  </div>
+
+
+
+  <!-- <div>
+    <div class="big_title" style="padding: 82px 650px 0px;">
+      Categories
+    </div>
+
+    <div class="sma_title">
+      Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit, sed do
+      <br>eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </div>
+
+    <div class="button" style="
+    padding: 14px 65px;">
+      Shop All
+    </div>
+  </div> -->
+
+  <!-- <div style="justify-content: center;align-items: center;
+      font-weight: bold; display: flex;">
+
+    <div>
+      <div class="boxes"></div>
+      <div class="boxes_title1">Food</div>
+    </div>
+
+    <div>
+      <div class="boxes"></div>
+      <div class="boxes_title1">Itar</div>
+    </div>
+
+    <div>
+      <div class="boxes"></div>
+      <div class="boxes_title1">Tasbeeh</div>
+    </div>
+  </div>
+
+  <div class="big_title" style="margin: 119px 550px 0px;">
+    Our latest arrivals
+  </div>
+
+  <div class="sma_title">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    <br>eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  </div>
+
+  <div class="button" style="
+    padding: 14px 65px 14px;">
+    Shop All
+  </div> -->
+
+  <div style="display: flex;justify-content:center">
+
+    <div class="long_boxes" style="margin: 150px 12px 0px;"></div>
+    <div class="long_boxes"></div>
+    <div class="long_boxes" style="margin: 150px 12px 0px;"></div>
+  </div>
+
+  <!-- <div class="big_title" style="padding: 151px 650px 0px;">
+    Our Products
+  </div>
+
+  <div class="sma_title">
+    Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit, sed do
+    <br>eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  </div>
+
+  <div class="button" style="
+    padding: 14px 65px;">
+    Shop All
+  </div>
+  <div style="justify-content: center;align-items: center;
+      font-weight: bold; display: flex;">
+
+    <div>
+      <div class="boxOP"></div>
+      <div class="boxes_title2">
+        Jae Namaz
+      </div>
+      <div style="padding: 0px 0px 125px 10px">
+        99$
+      </div>
+    </div>
+
+    <div>
+      <div class="boxOP"></div>
+      <div class="boxes_title2">
+        Dates
+      </div>
+      <div style="padding: 0px 0px 125px 10px">
+        99$
+      </div>
+    </div>
+
+    <div>
+      <div class="boxOP"></div>
+      <div class="boxes_title2">
+        Miswak
+      </div>
+      <div style="padding: 0px 0px 125px 10px">
+        99$
+      </div>
+    </div>
+  </div>-->
+  <hr>
+
+  <div class="footer container">
+    <div class="left-footer">
+
+
+      <div class="Signupforournewsletter">
+        Sign up for our newsletter
+      </div>
+      <div class="sm-title_footer">
+        Be the first to know about our special offers, news, and updates.
+      </div>
+
+      <div class="emailaddress">
+        <div style="color: #A9ABBD;font-size: 14px; margin: 12px 16px;">
+          Email Address
+        </div>
+        <div style="font-size: 14px;font-weight: bold; margin: 12px 16px;">
+          Sign Up
+        </div>
+      </div>
+
+    </div>
+
+    <div class="Allrightpartfooter">
+
+      <div>
+        <div class="rightpartfooter">
+          Lorem Ipsum
+        </div>
+        <div class="rightpartfooter">
+          <div class="x5rightpartfooter">Lorem</div>
+          <div class="x5rightpartfooter">Lorem</div>
+          <div class="x5rightpartfooter">Lorem</div>
+          <div class="x5rightpartfooter">Lorem</div>
+          <div class="x5rightpartfooter">Lorem</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="rightpartfooter">
+          Lorem Ipsum
+        </div>
+        <div class="rightpartfooter">
+          <div class="x5rightpartfooter">Lorem</div>
+          <div class="x5rightpartfooter">Lorem</div>
+          <div class="x5rightpartfooter">Lorem</div>
+          <div class="x5rightpartfooter">Lorem</div>
+          <div class="x5rightpartfooter">Lorem</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="rightpartfooter">
+          Lorem Ipsum
+        </div>
+        <div class="rightpartfooter">
+          <div class="x5rightpartfooter">Lorem</div>
+          <div class="x5rightpartfooter">Lorem</div>
+          <div class="x5rightpartfooter">Lorem</div>
+          <div class="x5rightpartfooter">Lorem</div>
+          <div class="x5rightpartfooter">Lorem</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script>
+    function showUserInfo() {
+      window.location.href = "/Users/vuhoangan/Documents/JAVASCRIPT_PROJECT/APItest/userinfo-page.html";
+    }
+
+
+    function setting_button() {
+      const logoutElement = document.getElementById("logout__element");
+      const showUserinfoElement = document.getElementById("show-userinfo__element");
+      const cartElement = document.getElementById("cart__element");
+
+      if (logoutElement.style.display == "flex") {
+        showUserinfoElement.style.display = "none";
+        logoutElement.style.display = "none";
+        cartElement.style.display = "none";
+      }
+
+      else if (logoutElement.style.display != "flex") {
+        showUserinfoElement.style.display = "flex";
+        logoutElement.style.display = "flex";
+        cartElement.style.display = "flex";
+      }
+    }
+
+
+
+    function logout() {
+      window.location.href = "/Users/vuhoangan/Documents/JAVASCRIPT_PROJECT/APItest/index.html";
+    }
+
+
+    const getAccessToken = localStorage.getItem(`accessToken`);
+
+
+    function getUserInfo() {
+      const requestOptions = {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${getAccessToken}`,
+          'Content-Type': 'application/json',
+        },
+      };
+      const apiUrl = `http://52.221.236.203:8080/auth/api/v1/users/user-info`;
+      fetch(apiUrl, requestOptions)
+        .then((response) => {
+          return response.json();
+          console.log(response);
+        })
+        .then((jsonData) => {
+          console.log(jsonData);
+        })
+    }
+    getUserInfo();
+  </script>
+</body>
+
+</html>
